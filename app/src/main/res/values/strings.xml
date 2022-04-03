@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">OpenTrivia</string>
+    <string name="profile_picture_button_action">Change profile picture</string>
+    <string name="profile_picture_content_description">Selected profile picture</string>
+</resources>
