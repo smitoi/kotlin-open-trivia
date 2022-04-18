@@ -2,4 +2,15 @@
     <string name="app_name">OpenTrivia</string>
     <string name="profile_picture_button_action">Change profile picture</string>
     <string name="profile_picture_content_description">Selected profile picture</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="android_mascot_head_with_question_marks">Android mascot head with question marks</string>
+    <string name="question_button_submit">Submit</string>
+    <string name="question_submit_button_content_description">Button for submitting the question</string>
+    <string name="profile">Profile</string>
+    <string name="categories">Categories</string>
+    <string name="right_answers">Right answers</string>
+    <string name="wrong_answers">Wrong answers</string>
+    <string name="clear_data">Clear data</string>
+    <string name="share_score">Share score</string>
 </resources>

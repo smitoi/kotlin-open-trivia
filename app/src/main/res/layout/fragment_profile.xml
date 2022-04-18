@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context=".fragments.Profile">
+
+    <Button
+        android:id="@+id/profile_picture_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/profile_picture_button_action" />
+
+    <ImageView
+        android:id="@+id/profile_picture"
+        android:layout_width="match_parent"
+        android:layout_height="128dp"
+        android:contentDescription="@string/profile_picture_content_description"
+        android:src="@mipmap/ic_launcher" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="32dp"
+        android:text="@string/right_answers"
+        android:textColor="#228B22"
+        android:textSize="32sp" />
+
+    <TextView
+        android:id="@+id/right_answers_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="8dp"
+        android:textSize="24sp"
+        tools:text="XX" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="32dp"
+        android:text="@string/wrong_answers"
+        android:textColor="#B22222"
+        android:textSize="32sp" />
+
+    <TextView
+        android:id="@+id/wrong_answers_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="8dp"
+        android:textSize="24sp"
+        tools:text="XX" />
+
+    <Button
+        android:id="@+id/clear_data_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="32dp"
+        android:text="@string/clear_data" />
+
+    <Button
+        android:id="@+id/share_data_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="8dp"
+        android:text="@string/share_score" />
+</LinearLayout>

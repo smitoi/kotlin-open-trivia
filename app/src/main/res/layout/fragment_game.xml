@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context=".fragments.Game">
+
+    <ImageView
+        android:id="@+id/question_image"
+        android:layout_width="match_parent"
+        android:layout_height="128dp"
+        android:layout_margin="4dp"
+        android:contentDescription="@string/android_mascot_head_with_question_marks"
+        android:scaleType="fitCenter"
+        android:src="@drawable/android_category_simple" />
+
+    <TextView
+        android:id="@+id/questions_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:fontFamily="sans-serif"
+        android:gravity="center_horizontal"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        tools:text="What color is the Android mascot?" />
+
+    <RadioGroup
+        android:id="@+id/answers_radio_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/answers_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:scrollbars="vertical" />
+    </RadioGroup>
+
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_marginTop="32dp"
+        android:id="@+id/submit_answer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:contentDescription="@string/question_submit_button_content_description"
+        android:text="@string/question_button_submit" />
+</LinearLayout>
