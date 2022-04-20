@@ -1,10 +1,13 @@
 package com.fmi.opentrivia.fragments
 
 import android.os.Bundle
+import android.text.TextWatcher
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
+import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -22,6 +25,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 class CategoryList : Fragment() {
 
     private lateinit var recyclerView: RecyclerView
+    private lateinit var editText: EditText
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,6 +34,14 @@ class CategoryList : Fragment() {
         val binding = inflater.inflate(R.layout.fragment_category_list, container, false)
 
         this.recyclerView = binding.findViewById(R.id.categories_list)
+        this.editText = binding.findViewById(R.id.search_input)
+
+        this.editText.doOnTextChanged { text, _, _, _ ->
+            Log.d("msi", "Searched for text $text")
+            val adapter = this.recyclerView.adapter as CategoriesAdapter
+            adapter.filter.filter(text)
+        }
+
         this.getAllCategories()
 
         return binding

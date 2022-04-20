@@ -96,9 +96,10 @@ class Profile : Fragment() {
     }
 
     private fun shareData() {
+        val rightAnswersCount = this.rightAnswersCount.text
         val sendIntent: Intent = Intent().apply {
             action = Intent.ACTION_SEND
-            putExtra(Intent.EXTRA_TEXT, "I am playing OpenTrivia, you should try it too!")
+            putExtra(Intent.EXTRA_TEXT, "My high score is $rightAnswersCount right answers!")
             type = "text/plain"
         }
 

@@ -6,6 +6,14 @@
     android:orientation="vertical"
     tools:context=".fragments.CategoryList">
 
+    <EditText
+        android:id="@+id/search_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:importantForAutofill="no"
+        android:inputType="text" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/categories_list"
         android:layout_width="match_parent"
