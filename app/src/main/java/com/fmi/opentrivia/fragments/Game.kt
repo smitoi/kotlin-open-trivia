@@ -1,19 +1,20 @@
 package com.fmi.opentrivia.fragments
 
+import android.animation.ObjectAnimator
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
+import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.fmi.opentrivia.R
 import com.fmi.opentrivia.adapters.AnswersAdapter
-import com.fmi.opentrivia.models.Game as GameModel
 import com.fmi.opentrivia.models.Question
 import com.fmi.opentrivia.services.external.OpenTriviaApi
 import com.fmi.opentrivia.services.external.QuestionsApiResponse
@@ -24,11 +25,14 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import com.fmi.opentrivia.models.Game as GameModel
+
 
 class Game : Fragment() {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var questionText: TextView
+    private lateinit var imageView: ImageView
     private lateinit var currentQuestion: Question
     private var selectedAnswer: String? = null
 
@@ -54,6 +58,7 @@ class Game : Fragment() {
 
         this.recyclerView = binding.findViewById(R.id.answers_list)
         this.questionText = binding.findViewById(R.id.questions_text)
+        this.imageView = binding.findViewById(R.id.question_image)
 
         binding.findViewById<MaterialButton>(R.id.submit_answer)
             .setOnClickListener { view: View ->
@@ -61,8 +66,10 @@ class Game : Fragment() {
                     Log.d("msi", "$selectedAnswer == ${currentQuestion.correct_answer}")
                     if (selectedAnswer == currentQuestion.correct_answer) {
                         rightAnswers++
+                        this.rotateQuestionsLogo()
                     } else {
                         wrongAnswers++
+                        this.wiggleQuestionsLogo()
                     }
 
                     questionIndex++
@@ -84,6 +91,26 @@ class Game : Fragment() {
             }
 
         return binding
+    }
+
+    private fun wiggleQuestionsLogo()
+    {
+        val objectAnimator = ObjectAnimator.ofFloat(
+            this.imageView,
+            "rotation", 0f, 60f, 0f, -60f, 0f
+        )
+        objectAnimator.duration = 1000
+        objectAnimator.start()
+    }
+
+    private fun rotateQuestionsLogo()
+    {
+        val objectAnimator = ObjectAnimator.ofFloat(
+            this.imageView,
+            "rotation", 0f, 360f,
+        )
+        objectAnimator.duration = 1000
+        objectAnimator.start()
     }
 
     private fun getQuestions(count: Int = 10, category: Int? = null, type: String? = null) {

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <ConstraintSet android:id="@+id/start">
+        <Constraint
+            android:id="@+id/right_answers_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp"
+            motion:layout_constraintBottom_toTopOf="@+id/textView2"
+            motion:layout_constraintTop_toBottomOf="@+id/textView"
+            motion:layout_constraintStart_toStartOf="parent" />
+        <Constraint
+            android:id="@+id/wrong_answers_count"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp"
+            motion:layout_constraintBottom_toTopOf="@+id/clear_data_button"
+            motion:layout_constraintTop_toBottomOf="@+id/textView2" />
+        <Constraint
+            android:id="@+id/textView"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginBottom="8dp"
+            motion:layout_constraintBottom_toTopOf="@+id/right_answers_count"
+            motion:layout_constraintTop_toBottomOf="@+id/profile_picture"
+            motion:layout_constraintStart_toStartOf="parent" />
+        <Constraint
+            android:id="@+id/textView2"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginBottom="8dp"
+            motion:layout_constraintBottom_toTopOf="@+id/wrong_answers_count"
+            motion:layout_constraintTop_toBottomOf="@+id/right_answers_count"
+            motion:layout_constraintStart_toStartOf="parent" />
+        <Constraint
+            android:id="@+id/textView2"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginBottom="8dp"
+            motion:layout_constraintBottom_toTopOf="@+id/wrong_answers_count"
+            motion:layout_constraintTop_toBottomOf="@+id/right_answers_count"
+            motion:layout_constraintStart_toStartOf="parent" />
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+    </ConstraintSet>
+    <Transition
+        motion:constraintSetStart="@+id/start"
+        motion:constraintSetEnd="@+id/end"
+        motion:autoTransition="animateToEnd" />
+</MotionScene>
